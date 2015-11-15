@@ -1,3 +1,38 @@
+import java.util.*;
+
+public class ObjectCreation {
+	public static void main(String[] args){
+		Scanner scanner = new Scanner(System.in);
+		boolean hasInput = false;
+		
+		while(hasInput != true){
+			System.out.println("Please enter 'simple', 'reference', 'arrayPrim', 'arrayRef', 'instance': ");
+			String input = scanner.nextLine();
+			
+			if(input.equals("simple")){
+				int number = scanner.nextInt();
+				
+				hasInput = true;
+			}else if(input.equals("reference")){
+				System.out.println("reference");
+				hasInput = true;
+			}else if(input.equals("arrayPrim")){
+				System.out.println("arrayPrim");
+				hasInput = true;
+			}else if(input.equals("arrayRef")){
+				System.out.println("arrayRef");
+				hasInput = true;
+			}else if(input.equals("instance")){
+				System.out.println("instance");
+				hasInput = true;
+			}else{
+				System.out.println("The input you have entered does not exist. Please try again.");
+			}
+		}
+	}
+}
+
+/*
 import java.io.*;
 
 import org.jdom2.*;
@@ -50,9 +85,10 @@ public class ObjectCreation {
 		
 		try {
 			xmlOutput.output(doc, System.out);
-			xmlOutput.output(doc, new FileWriter("f:\\file.xml"));//stores output in a file
+			xmlOutput.output(doc, new FileWriter("f:\\file.xml"));//stores the output in a file
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 }
+*/
