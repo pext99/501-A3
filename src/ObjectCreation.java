@@ -11,14 +11,17 @@ public class ObjectCreation {
 			String input = scanner.nextLine();
 			
 			if(input.equals("simple")){
-				System.out.println("enter an integer: ");
+				System.out.println("enter an integer to be the instance variable: ");
 				int fieldNumber = scanner.nextInt();//set field
 				SimpleObject simple = new SimpleObject(fieldNumber);
 				//System.out.println(simple.squareNumber(fieldNumber));
 				Serialization simpleSerial = new Serialization(simple);
 				hasInput = true;
 			}else if(input.equals("reference")){
-				System.out.println("reference");
+				System.out.println("enter an integer to be the instance variable: ");
+				int fieldNumber = scanner.nextInt();//set field
+				ReferenceObject reference = new ReferenceObject(fieldNumber);
+				Serialization referenceSerial = new Serialization(reference);
 				hasInput = true;
 			}else if(input.equals("arrayPrim")){
 				System.out.println("arrayPrim");

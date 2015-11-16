@@ -14,13 +14,15 @@ public class Serialization {
 		doc.setRootElement(serialized);
 		
 		String declaringClass = simple.getClass().getName();//get the class name
-		int hash = declaringClass.hashCode();//get a unique id
+		/*int hash = declaringClass.hashCode();//get a unique id
 		int positiveHash = Math.abs(hash);//so that there won't be a negative id
-		String id = String.valueOf(positiveHash);//convert int to string
+		String id = String.valueOf(positiveHash);//convert int to string*/
+		String id = Integer.toHexString(System.identityHashCode(declaringClass));
 		
 		Element object = new Element("object");//create simple object
 		object.setAttribute(new Attribute("class", declaringClass));
 		object.setAttribute(new Attribute("id", id));
+		//object.addContent(new Element("field").setAttribute("name", "asdf").setAttribute("city", "qwer"));
 		doc.getRootElement().addContent(object);
 		////////////////////////////////////////////////////////////////////////////////////////////////////simple = obj
 		Field fieldArray[] = simple.getClass().getDeclaredFields();
@@ -34,6 +36,7 @@ public class Serialization {
 				fieldArray[i].setAccessible(true);
 				try {
 					String value = String.valueOf(fieldArray[i].get(simple));
+					//object.addContent(new Element("field").setAttribute("name", fieldName).setAttribute("declaringclass", declaringClass).addContent(new Element("value").setText(value)));
 					field.addContent(new Element("value").setText(value));//primitive field
 				} catch (IllegalArgumentException e) {
 					e.printStackTrace();
@@ -43,22 +46,35 @@ public class Serialization {
 			}else{
 				fieldArray[i].setAccessible(true);
 				try {
-					int refHash = simple.hashCode();
+					/*int refHash = simple.hashCode();
 					int positiveRefHash = Math.abs(refHash);
-					String hashInString = String.valueOf(positiveRefHash);
+					String hashInString = String.valueOf(positiveRefHash);*/
+					String hashInString = Integer.toHexString(System.identityHashCode(simple));
 					field.addContent(new Element("reference").setText(hashInString));//reference field
 				} catch (IllegalArgumentException e) {
 					e.printStackTrace();
 				}
 			}
 			doc.getRootElement().addContent(field);
-			//doc.getRootElement().addContent(field(fieldName, declaringClass, fieldArray[i], simple));
 			
 		}
 		
 		XMLOutputter xmlOutput = new XMLOutputter();
 		xmlOutput.setFormat(Format.getPrettyFormat());
 		
+		try {
+			xmlOutput.output(doc, System.out);
+			xmlOutput.output(doc, new FileWriter("f:\\file.xml"));//stores the output in a file
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public Serialization(ReferenceObject reference) {
+		Element serialized = new Element("serialized");//create root element
+		Document doc = new Document();
+		doc.setRootElement(serialized);
+		XMLOutputter xmlOutput = new XMLOutputter();
+		xmlOutput.setFormat(Format.getPrettyFormat());
 		try {
 			xmlOutput.output(doc, System.out);
 			xmlOutput.output(doc, new FileWriter("f:\\file.xml"));//stores the output in a file
@@ -115,6 +131,8 @@ public class Serialization {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}*/
+
+	
 		
 	
 }

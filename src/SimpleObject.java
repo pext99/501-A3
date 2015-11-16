@@ -6,6 +6,10 @@ public class SimpleObject {
 		this.number = fieldNumber;
 	}
 
+	public SimpleObject() {
+
+	}
+
 	public int squareNumber(int number){
 		
 		int answer = number * number;
