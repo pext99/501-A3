@@ -14,7 +14,6 @@ public class ObjectCreation {
 				System.out.println("enter an integer to be the instance variable: ");
 				int fieldNumber = scanner.nextInt();//set field
 				SimpleObject simple = new SimpleObject(fieldNumber);
-				//System.out.println(simple.squareNumber(fieldNumber));
 				Serialization simpleSerial = new Serialization(simple);
 				hasInput = true;
 			}else if(input.equals("reference")){
@@ -24,10 +23,18 @@ public class ObjectCreation {
 				Serialization referenceSerial = new Serialization(reference);
 				hasInput = true;
 			}else if(input.equals("arrayPrim")){
-				System.out.println("arrayPrim");
+				System.out.println("enter 2 integers: ");
+				int fieldNumber1 = scanner.nextInt();//set field
+				int fieldNumber2 = scanner.nextInt();//set field
+				arrayPrim primitiveArr = new arrayPrim(fieldNumber1, fieldNumber2);
+				Serialization arrayPrimitiveSerial = new Serialization(primitiveArr);
 				hasInput = true;
 			}else if(input.equals("arrayRef")){
-				System.out.println("arrayRef");
+				System.out.println("enter 2 integers: ");
+				int fieldNumber1 = scanner.nextInt();//set field
+				int fieldNumber2 = scanner.nextInt();//set field
+				arrayRef referenceArr = new arrayRef(fieldNumber1, fieldNumber2);
+				Serialization arrayReferenceSerial = new Serialization(referenceArr);
 				hasInput = true;
 			}else if(input.equals("instance")){
 				System.out.println("instance");
