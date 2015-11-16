@@ -56,7 +56,7 @@ public class Serialization {
 		
 		try {
 			xmlOutput.output(doc, System.out);
-			xmlOutput.output(doc, new FileWriter("f:\\file.xml"));//stores the output in a file
+			xmlOutput.output(doc, new FileWriter("f:\\file.txt"));//stores the output in a file
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -108,7 +108,7 @@ public class Serialization {
 		xmlOutput.setFormat(Format.getPrettyFormat());
 		try {
 			xmlOutput.output(doc, System.out);
-			xmlOutput.output(doc, new FileWriter("f:\\file.xml"));//stores the output in a file
+			xmlOutput.output(doc, new FileWriter("f:\\file.txt"));//stores the output in a file
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -163,7 +163,7 @@ public class Serialization {
 		xmlOutput.setFormat(Format.getPrettyFormat());
 		try {
 			xmlOutput.output(doc, System.out);
-			xmlOutput.output(doc, new FileWriter("f:\\file.xml"));//stores the output in a file
+			xmlOutput.output(doc, new FileWriter("f:\\file.txt"));//stores the output in a file
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -218,7 +218,7 @@ public class Serialization {
 		xmlOutput.setFormat(Format.getPrettyFormat());
 		try {
 			xmlOutput.output(doc, System.out);
-			xmlOutput.output(doc, new FileWriter("f:\\file.xml"));//stores the output in a file
+			xmlOutput.output(doc, new FileWriter("f:\\file.txt"));//stores the output in a file
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -273,7 +273,7 @@ public class Serialization {
 		xmlOutput.setFormat(Format.getPrettyFormat());
 		try {
 			xmlOutput.output(doc, System.out);
-			xmlOutput.output(doc, new FileWriter("f:\\file.xml"));//stores the output in a file
+			xmlOutput.output(doc, new FileWriter("f:\\file.txt"));//stores the output in a file
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -1,8 +1,14 @@
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.*;
 import java.util.*;
 
 public class ObjectCreation {
 	
-	public static void main(String[] args){
+	public static void main(String[] args) throws IOException{
 		Scanner scanner = new Scanner(System.in);
 		boolean hasInput = false;
 		
@@ -47,5 +53,50 @@ public class ObjectCreation {
 				System.out.println("The input you have entered does not exist. Please try again.");
 			}
 		}
+		
+		ServerSocket serverSocket = null;
+		
+		try{
+			serverSocket = new ServerSocket(4444);
+			
+		}catch (IOException ex) {
+            System.out.println("Something is wrong with the port number.");
+        }
+		
+		Socket socket = null;
+        InputStream in = null;
+        OutputStream out = null;
+        
+        try {
+            socket = serverSocket.accept();
+        } catch (IOException ex) {
+            System.out.println("Can't accept client connection.");
+        }
+
+        try {
+            in = socket.getInputStream();
+        } catch (IOException ex) {
+            System.out.println("Can't get input stream.");
+        }
+
+        try {
+            out = new FileOutputStream("f:\\file.xml");
+        } catch (FileNotFoundException ex) {
+            System.out.println("File not found.");
+        }
+
+        byte[] bytes = new byte[16*1024];
+
+        int count;
+        while ((count = in.read(bytes)) > 0) {
+            out.write(bytes, 0, count);
+        }
+
+        out.close();
+        in.close();
+        socket.close();
+        serverSocket.close();
+        
+        
 	}
 }
