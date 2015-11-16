@@ -37,7 +37,11 @@ public class ObjectCreation {
 				Serialization arrayReferenceSerial = new Serialization(referenceArr);
 				hasInput = true;
 			}else if(input.equals("instance")){
-				System.out.println("instance");
+				System.out.println("enter a word");
+				String inputWord = scanner.nextLine();
+				Instance instance = new Instance();
+				instance.word = inputWord;
+				Serialization instanceWord = new Serialization(instance);
 				hasInput = true;
 			}else{
 				System.out.println("The input you have entered does not exist. Please try again.");
